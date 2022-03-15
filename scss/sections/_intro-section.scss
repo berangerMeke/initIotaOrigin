@@ -1,0 +1,84 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.intro-section {
+    @include bgGradient;
+    // background-image: url('../../images/BG-IotaOrigin-80.jpg');
+    padding: 4rem 0 0 0;
+    width: 100%;
+    height: 100%;
+
+    svg {
+        margin-bottom: -0.2953rem;
+        @include media-breakpoint-up(lg){
+            margin-bottom: 0;
+        }
+    }
+}
+
+.brand {
+    padding-left: 1.5rem !important;
+    display: inline-block;
+    // border: 1px solid $gray-400;
+
+    @include media-breakpoint-up(sm){
+        padding-left: 0 !important;
+    }
+
+    img {
+        // display: block;
+        // margin-left: auto;
+        // margin-right: auto;
+    }
+}
+
+.display-2 {
+    padding-left: 1.5rem;
+    margin: 3rem 0 2rem;
+    word-wrap: break-word;
+
+    @include media-breakpoint-up(sm){
+        padding-left: 0;
+        text-align: left;
+        line-height: 4rem;
+    }
+    @include media-breakpoint-up(lg) {
+        line-height: 5rem;
+    }
+
+    &--intro {
+        font-size: 2.4rem;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            font-size: 3.8rem;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+    }
+
+    &--description {
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+}
+
+.cta-btn {
+    margin-left: 1.5rem;
+
+    @include media-breakpoint-up(sm){
+        margin-left: 0;
+    }
+}
+
+.lottie {
+    margin-top: 2rem;
+
+    @include media-breakpoint-up(sm) {
+        margin-top: 0;
+    }
+}
