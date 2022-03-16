@@ -1,0 +1,46 @@
+@use '../custom' as *;
+
+.benefits {
+    background-color: $white;
+    padding: 5rem 0 8rem;
+
+    @include media-breakpoint-down(md) {
+        padding: 5rem 0;
+    }
+
+    .infos--content {
+        @include media-breakpoint-down(md) {
+            order: 5 !important;
+        }
+        
+    }
+
+    &__list {
+        position: relative;
+        list-style-type: none;
+        display: block;
+        padding: 0.5rem 0.8rem 0.7rem 0.8rem;
+        font-size: 1.15rem;
+        font-weight: 400;
+        line-height: 1.5rem;
+        display: inline-block;
+
+        li {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .item-icon {
+            
+            i {
+                font-size: 1.5rem;
+                font-weight: bolder;
+                color: $green;
+            }
+        }
+
+        .item-content {
+            padding-left: 1rem;
+        }
+    }
+}

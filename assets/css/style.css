@@ -11453,7 +11453,7 @@ body {
 }
 @media (min-width: 768px) {
   .display-2--intro {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     overflow-wrap: break-word;
     hyphens: auto;
   }
@@ -11870,14 +11870,6 @@ body {
 }
 .form input::placeholder, .form textarea::placeholder {
   color: #adb5bd;
-}
-
-.form-submission-notification .alert .notif-text {
-  border: 1px solid transparent;
-  padding: 0 0.5rem;
-}
-.form-submission-notification .alert button {
-  width: 5%;
 }
 
 .brand {
