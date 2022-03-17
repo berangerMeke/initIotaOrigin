@@ -38,10 +38,10 @@ if (!empty($_POST)) {
     $data = json_decode($form_data);
 
     $lang = $data->lang;
-    $name = $data->name;
+    $name = strip_tags($data->name);
     $email = $data->email;
-    $subject = $data->subject;
-    $message = $data->message;
+    $subject = strip_tags($data->subject);
+    $message = strip_tags($data->message);
 
 
     $to = "hello@iotaorigin.de"; // this is your Email address: hello@iotaorigin.de
@@ -62,7 +62,7 @@ if (!empty($_POST)) {
         $responseType = 'failed';
     }
 
-    echo json_encode(['responseType' => $responseType]);
+    echo json_encode(['responseType' => $responseType, 'name' => strip_tags($name)]);
 
 
     // mail($to,$subject,$message,$headers);
@@ -70,6 +70,9 @@ if (!empty($_POST)) {
     // echo "Mail Sent. Thank you " . $first_name . ", we will contact you shortly.";
     // You can also use header('Location: thank_you.php'); to redirect to another page.
     // You cannot use header and echo together. It's one or the other.
+}
+else {
+    header("Location: https://iotaoriginug2.kathiopa.com/v1.0/");
 }
 
 

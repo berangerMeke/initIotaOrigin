@@ -1,4 +1,6 @@
-
+$(".alert-dismissible .btn-close").on('click', function(e){
+    $(this).parent().remove();
+});
 
 $("#contact-form").on('submit', function(e){
     e.preventDefault();
@@ -135,8 +137,13 @@ $("#contact-form").on('submit', function(e){
             /* console.log('Post data 2 : JSON.stringify & serializeArray');
             console.log(form_data2);
             console.log('Post data 3: '+ form_data3); */
-
-            let personName = form_data1.name;
+            
+            // Remove all Html tags. other method: .replace(/<(?:.|\n)*?>/gm, ''); 
+            form_data1.name = form_data1.name.toString().replace(/(<([^>]+)>)/gi, "");
+            form_data1.subject = form_data1.subject.toString().replace(/(<([^>]+)>)/gi, "");
+            form_data1.message = form_data1.message.toString().replace(/(<([^>]+)>)/gi, "");
+            
+            // let personName = form_data1.name;
 
             $.ajax({
                 url: post_url,
@@ -148,7 +155,7 @@ $("#contact-form").on('submit', function(e){
                     $(form)[0].reset();
                     $('.form-submission-notification').append(success_msg_box);
                     if(data.responseType === 'success'){
-                        $('.alert-success .notif-text').html( thankYouMessage_Intl(personName) );
+                        $('.alert-success .notif-text').html( thankYouMessage_Intl(data.name) );
                         $('.alert-success').addClass('show');
                         console.log( data.response, textStatus, jQxhr );
                     }
